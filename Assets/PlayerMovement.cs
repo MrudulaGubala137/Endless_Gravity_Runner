@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     public float jumpForce;
-    public int PlayerSpeed;
+    public float PlayerSpeed;
     Rigidbody rb;
     int score;
+    int maxDistance;
+    public Text scoreText;
    
     void Start()
     {
@@ -26,9 +29,12 @@ public class PlayerMovement : MonoBehaviour
         }
         // if(Input.GetKeyDown())
        score= Mathf.FloorToInt(transform.position.x);
-        if(score >100)
+        Debug.Log(score);
+        scoreText.text = "score: " + score;
+        if(score >maxDistance)
         {
-            PlayerSpeed = 2*PlayerSpeed;
+            PlayerSpeed = PlayerSpeed+0.2f;
+            maxDistance = maxDistance + 100;
         }
         
     }

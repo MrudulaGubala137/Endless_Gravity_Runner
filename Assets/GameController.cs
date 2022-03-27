@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -10,9 +12,14 @@ public class GameController : MonoBehaviour
     public GameObject[] blockPrefab;
     public float spawnPoint;
     public float spawnMargin;
+    public GameObject gameOverPanel;
+   // public Text scoreText;
+    PlayerMovement playerMove;
+    public Button playAgain;
     void Start()
     {
-        
+        gameOverPanel.SetActive(false);
+        playAgain.onClick.AddListener(PlayAgain);
     }
 
     // Update is called once per frame
@@ -35,6 +42,15 @@ public class GameController : MonoBehaviour
         {
             cam.transform.position = new Vector3(player.transform.position.x, cam.transform.position.y, cam.transform.position.z);
         }
+        else if(player==null)
+        {
+            gameOverPanel.SetActive(true);
+            
+        }
         
+    }
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene(1);
     }
 }
