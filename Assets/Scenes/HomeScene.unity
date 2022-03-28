@@ -554,8 +554,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Instructions: Press space bar to move to up and down platform. press C
-    to  move player to center. Score increases by distance.'
+  m_Text: 'Instructions: Press space bar to move player up and down. Hitting Obstacles
+    make player dead. Travel more distance to increase score.'
 --- !u!222 &638306967
 CanvasRenderer:
   m_ObjectHideFlags: 0

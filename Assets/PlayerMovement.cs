@@ -12,10 +12,15 @@ public class PlayerMovement : MonoBehaviour
     int score;
     int maxDistance;
     public Text scoreText;
+    
    
     void Start()
     {
-        rb=GetComponent<Rigidbody>();   
+        rb=GetComponent<Rigidbody>();
+        PlayerPrefs.SetString("Name","Mrudula");
+        Debug.Log(PlayerPrefs.GetString("Name"));
+        PlayerPrefs.SetFloat("float",0.5f);
+        Debug.Log(PlayerPrefs.GetFloat("float"));
     }
 
     // Update is called once per frame
@@ -31,7 +36,9 @@ public class PlayerMovement : MonoBehaviour
        
         // if(Input.GetKeyDown())
        score= Mathf.FloorToInt(transform.position.x);
-        Debug.Log(score);
+        Debug.Log(PlayerPrefs.GetInt("Score"));
+       
+        PlayerPrefs.SetInt("Score", score);
         scoreText.text = "score: " + score;
         if(score >maxDistance)
         {
