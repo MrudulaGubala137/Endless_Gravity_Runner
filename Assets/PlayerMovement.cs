@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Physics.gravity*= -1;
         }
+        
+       
         // if(Input.GetKeyDown())
        score= Mathf.FloorToInt(transform.position.x);
         Debug.Log(score);
@@ -42,6 +44,10 @@ public class PlayerMovement : MonoBehaviour
     {
        
         rb.velocity=new Vector3(PlayerSpeed,rb.velocity.y,rb.velocity.z);
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

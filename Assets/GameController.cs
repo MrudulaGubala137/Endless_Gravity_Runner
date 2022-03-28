@@ -12,14 +12,18 @@ public class GameController : MonoBehaviour
     public GameObject[] blockPrefab;
     public float spawnPoint;
     public float spawnMargin;
-    public GameObject gameOverPanel;
-   // public Text scoreText;
-    PlayerMovement playerMove;
+   public GameObject gameOverPanel;
+    //public GameObject gamePanel;
+   // PlayerMovement playerMove;
     public Button playAgain;
+   
     void Start()
     {
-        gameOverPanel.SetActive(false);
         playAgain.onClick.AddListener(PlayAgain);
+      
+      gameOverPanel.SetActive(false);
+       
+       
     }
 
     // Update is called once per frame
@@ -44,7 +48,8 @@ public class GameController : MonoBehaviour
         }
         else if(player==null)
         {
-            gameOverPanel.SetActive(true);
+          gameOverPanel.SetActive(true);
+            
             
         }
         
@@ -53,4 +58,5 @@ public class GameController : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+   
 }
